@@ -2,6 +2,7 @@ import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = {
   contact: [],
+  filter: '',
 };
 
 const ContactsSlice = createSlice({
@@ -25,9 +26,12 @@ const ContactsSlice = createSlice({
     deleteContact: (state, { payload }) => {
       state.contact = state.contact.filter(element => element.id !== payload);
     },
+    filterContacts(state, { payload }) {
+      state.filter = payload;
+    },
   },
 });
 
 export const contactReducer = ContactsSlice.reducer;
-export const { addContact, deleteContact, updateContact } =
+export const { addContact, deleteContact, filterContacts } =
   ContactsSlice.actions;

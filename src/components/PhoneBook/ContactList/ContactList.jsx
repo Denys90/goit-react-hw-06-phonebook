@@ -2,10 +2,10 @@ import React from 'react';
 import List from '../Styled/List.srtled';
 import { MdDeleteForever } from 'react-icons/md';
 
-function ContactList({ contact, removeContact }) {
+function ContactList({ findContact, removeContact }) {
   return (
     <List>
-      {contact.map(({ id, name, number }) => (
+      {findContact.map(({ id, name, number }) => (
         <li key={id}>
           {name}: {number}
           <button onClick={() => removeContact(id)}>
