@@ -4,10 +4,10 @@ import { toast } from 'react-toastify';
 import { addContact } from 'components/Redux/contactsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-function Form({ name, number }) {
+function Form() {
   const dispatch = useDispatch();
   const contact = useSelector(state => state.contact.contact);
-
+  // ===========================================================>
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -46,6 +46,9 @@ function Form({ name, number }) {
 
     form.reset();
   };
+  // ===========================================================>
+  const { name, number } = useSelector(state => state.contact.contact);
+  // ===========================================================>
   return (
     <FormS onSubmit={handleSubmit}>
       <label htmlFor="Name">
